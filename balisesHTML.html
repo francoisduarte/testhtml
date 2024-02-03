@@ -1,0 +1,2465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toutes les Balises HTML</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap" rel="stylesheet">
+    <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element
+ -->
+
+<style>
+
+*{
+    min-width: 0;
+    font:inherit;
+    margin:0;
+    padding:0;
+
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+img, video, svg{
+    display:block;
+    height: auto;
+    max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6{ text-wrap: balance; margin : 10px 0}
+p{ text-wrap: pretty;}
+
+
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  margin: 2rem;
+  column-width: 300px;
+  gap: 20px;
+  text-align: justify;
+  font-family: 'Roboto Flex', sans-serif;
+  font-size: 12px;
+}
+ 
+
+/* editeur de code */
+.code-container {
+  position:relative;
+}
+code {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-family: monospace;
+  display:block;
+  font-size: 10px;
+  font-size: 0.70rem;
+}
+
+
+.code-block {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: left;
+  overflow-wrap: break-word;
+  background-color: #2c2c2c;
+  color: lightgrey;
+  margin: 4px 0;
+  padding-top: 0.50rem;
+  font-size: 10px;
+  padding-bottom: 1rem;
+
+}
+
+button.copy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 2px;
+  padding: 1px 2px;
+  font-size: 10px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  margin-right: 1px;
+
+}
+
+
+.nom-balise { color: rgb(36, 141, 207); }
+.chevron { color: rgb(36, 141, 207); }
+.nom-attribut { color: rgb(117, 205, 218); }
+.valeur-attribut { color: rgb(158, 143, 111);  }
+.html-commentaire { color: rgb(36, 118, 46); font-style: italic; }
+span.html-commentaire span.chevron {color: rgb(36, 118, 46) }
+
+
+
+.accolades{ color: rgb(36, 207, 45); }
+.selecteur{ color: rgb(207, 127, 36); }
+.deux-points{ color: rgb(36, 207, 42); }
+.propriete{ color: rgb(165, 106, 207); }
+.point-virgule{ color: rgb(53, 207, 36); }
+.valeur-propriete{ color: rgb(250, 201, 127); }
+
+/* fin editeur de code */
+
+ul li { margin-left: 2rem}
+
+h1{
+    color: rgb(21, 5, 86);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Arial, sans-serif;
+    font-size : 2.5rem;
+    text-align:left;
+    letter-spacing: -2px;
+}
+
+h2{
+    background-color: black;
+    color: white;
+    text-indent: 10px;
+    position:relative;
+    text-align: left;
+    width: 100%;
+}
+abbr {
+  font-style: italic;
+  color: chocolate;
+  font-variant: all-small-caps;
+  font-size: 20px;
+}
+
+
+/* pour ILLUSTRER tableau pour COL*/
+
+.batman {
+  background-color: #d7d9f2;
+}
+
+.flash {
+  background-color: #ffe8d4;
+}
+
+caption {
+  padding: 8px;
+  caption-side: bottom;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(100, 100, 100);
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  font-size: 0.7rem;
+}
+
+td,
+th {
+  border: 1px solid rgb(100, 100, 100);
+  padding: 10px 10px;
+}
+
+td {
+  text-align: center;
+}
+
+/* pour ILLUSTRER details*/
+details {
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
+}
+
+
+
+
+figure {
+  border: thin #c0c0c0 solid;
+  display: flex;
+  flex-flow: column;
+  padding: 5px;
+  max-width: 220px;
+  margin: auto;
+}
+
+figure img {
+  max-width: 220px;
+  max-height: 150px;
+}
+
+figcaption {
+  background-color: #222;
+  color: #fff;
+  font: italic smaller sans-serif;
+  padding: 3px;
+  text-align: center;
+}
+
+
+hgroup {
+  text-align: right;
+  padding-right: 16px;
+  border-right: 10px solid #00c8d7;
+}
+
+hgroup h1 {
+  margin-bottom: 0;
+}
+
+hgroup p {
+  margin: 0;
+  font-weight: bold;
+}
+
+
+ins::before,
+ins::after {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+ins::before {
+  content: " [Début de l'insertion]";
+}
+
+ins::after {
+  content: " [Fin de l'insertion] ";
+}
+
+kbd {
+  background-color: #eee;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.2),
+    0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+  color: #333;
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+.fieldset legend {
+  background-color: #000;
+  color: #fff;
+  padding: 3px 6px;
+}
+
+.fieldset input {
+  margin: 0.4rem;
+}
+
+nav.crumbs {
+  border-bottom: 1px solid black;
+}
+
+.crumbs ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.crumb {
+  display: inline-block;
+}
+
+.crumb a::after {
+  display: inline-block;
+  color: #000;
+  content: '>';
+  font-size: 80%;
+  font-weight: bold;
+  padding: 0 3px;
+}
+
+thead,
+tfoot {
+  background-color: #3f87a6;
+  color: #fff;
+}
+
+tbody {
+  background-color: #e4f0f5;
+}
+
+caption {
+  padding: 10px;
+  caption-side: bottom;
+}
+
+table.tfoot {
+  border-collapse: collapse;
+  border: 2px solid rgb(200, 200, 200);
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+}
+
+table.tfoot td,
+table.tfoot th {
+  border: 1px solid rgb(190, 190, 190);
+  padding: 5px 10px;
+}
+
+table.tfoot td {
+  text-align: center;
+}
+
+.top{
+  display:inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: rgb(0, 179, 255);
+  color: black;
+  font-size: 11px;
+  font-weight:bold;
+  padding: 2px;
+  position:absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+text-indent : 0px;
+margin-right: 2px;
+margin-top: 2px;
+}
+
+#wbr-example-paragraphs {
+  background-color: white;
+  overflow: hidden;
+  resize: horizontal;
+  width: 9rem;
+  border: 2px dashed #999;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Toutes les balises HTML au monde!</h1>
+
+<h2>&lt;a&gt; pour les liens<span class="top">top</span></h2>
+
+<div class="code-container">
+<button class="copy" onclick="copyCode()">Copier code</button>
+<pre><code class="code-block">
+  &lt;a href="https://www.google.fr/"&gt;lien vers Google&lt;/a&gt;
+  <a href="mentions.html">Mentions légales</a>
+</code></pre>
+</div>
+
+
+<div class="code-container">
+<button class="copy" onclick="copyCode()">Copier code</button>
+<pre><code class="code-block">
+<!-- Ici, tu peux insérer ton code HTML, CSS ou JavaScript -->
+&lt;a href="https://example.com"&gt; Website&lt;/a&gt;
+&lt;a href="mailto:m.bluth@example.com"&gt; Email&lt;/a&gt;
+&lt;a href="tel:+123456789"&gt; Phone&lt;/a&gt;
+</code></pre>
+</div>
+
+
+
+<a href="https://example.com">Website</a><br>
+<a href="mailto:m.bluth@example.com">Email</a><br>
+<a href="tel:+123456789">Phone</a><br><br>
+
+Les attributs possibles : href, title, download, target,... 
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+    <!-- Ici, les styles pour les liens et leur effet en hover -->
+   a{
+    color: red; 
+    font-size: 10px;
+    text-decoration: none;
+   }
+   a:hover{
+    color: red; 
+    font-size: 10px;
+    text-decoration: underline;
+   }
+  </code> </pre>
+</div>
+
+
+<h2>&lt;abbr&gt; pour les abréviations</h2>
+
+<p>L'élément HTML abbr (<strong>abréviation</strong> en français) représente une abréviation ou un acronyme ;</p> 
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<abbr title="HyperText Markup Language">HTML</abbr>
+  </code></pre>
+  </div>
+
+
+
+<p>Vous êtes en train d'apprendre <abbr>HTML</abbr> (HyperText Markup Language) et les <abbr title="Cascading Style Sheets">CSS</abbr> (Cascading Style Sheets) pour les styles.</p>
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<abbr title="Cascading style sheet">CSS</abbr>
+  </code></pre>
+  </div>
+
+
+
+
+Les attributs possibles : title<br>
+On notera que l'attribut title possède ici une sémantique spécifique et il représente la description complète de l'abréviation. Souvent, mais pas nécessairement, il s'affiche comme une info-bulle au survol de la souri qui apparaitre au pous de 1 seconde lorsqu'on est au survol de l'élément.
+
+
+
+<h2>&lt;address&gt; pour les abréviations</h2>
+L'élément HTML address indique des informations de contact pour une personne, un groupe de personnes ou une organisation.
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<address>
+  <a href="mailto:jim@example.com"> 
+    jim@example.com</a>
+  <a href="tel:+14155550132">+1 (415) 555‑0132</a>
+</address>
+  </code></pre>
+  </div>
+
+<address>
+    <a href="mailto:jim@example.com">jim@example.com</a><br />
+    <a href="tel:+14155550132">+1 (415) 555‑0132</a>
+</address>
+
+<code>
+  <a  href="cv.pdf" download>Télécharger cv</a>
+</code>
+
+
+<h2>&lt;area&gt; pour des zones définies dans une image.</h2>
+
+  L'élément HTML <kbd><strong>area</strong></kbd> définit une zone particulière d'une image et peut lui associer un lien hypertexte. Cet élément n'est utilisé qu'au sein d'un élément <kbd><strong>map</strong></kbd>.
+
+  <div class="code-container">
+    <button class="copy" onclick="copyCode()">Copier code</button>
+    <pre><code class="code-block">
+<map name="exemple-map-1">
+  <area
+    shape="rect"
+    coords="0,0 200,200"
+    href="https://developer.mozilla.org"
+    target="_blank"
+    alt="Page d'accueil MDN" />
+  <area shape="default" />
+  </map>
+  <img usemap="#exemple-map-1" src="https://via.placeholder.com/350x150" />
+  </address>
+    </code></pre>
+    </div>
+
+<map name="exemple-map-1">
+    <area
+      shape="rect"
+      coords="0,0 200,200"
+      href="https://developer.mozilla.org"
+      target="_blank"
+      alt="Page d'accueil MDN" />
+    <area shape="default" />
+  </map>
+  <img usemap="#exemple-map-1" src="https://via.placeholder.com/350x150" />
+  
+
+
+
+
+<h2>&lt;article&gt; pour les articles<span class="top">top</span></h2>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<article>...</article>
+  </code></pre>
+  </div>
+
+
+L'élément HTML <kbd><strong>article</strong></kbd> représente une composition autonome dans un document, une page, une application ou un site, destinée à être distribuée ou réutilisée de manière indépendante (par exemple, dans le cadre d'une syndication). Exemples : un message de forum, un article de magazine ou de journal, ou un article de blog, une fiche produit, un commentaire soumis par un utilisateur, un widget ou gadget interactif, ou tout autre élément de contenu indépendant.
+<!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/article -->
+
+<h2>&lt;aside&gt; pour les apartés<span class="top">top</span></h2>
+
+L'élément HTML <kbd><strong>aside</strong></kbd> représente une partie d'un document dont le contenu n'a qu'un rapport indirect avec le contenu principal du document. Les apartés sont fréquemment présents sous la forme d'encadrés ou de boîtes de légende.
+
+<h2>&lt;audio&gt; pour des fichiers audio</h2>
+
+L'élément HTML <kbd><strong>audio</strong></kbd> est utilisé afin d'intégrer un contenu sonore dans un document. Il peut contenir une ou plusieurs sources audio représentées avec l'attribut <kbd><strong>src</strong></kbd> ou l'élément <kbd><strong>source</strong></kbd> : le navigateur choisira celle qui convient le mieux. Il peut également être la destination de médias diffusés en continu, en utilisant un MediaStream.
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+&lt;audio controls src="fichier.mp3" autoplay&gt;&lt;/audio&gt;
+  </code></pre>
+  </div>
+
+
+<audio controls src="fichier.mp3"></audio>
+
+<p>Les attributs possibles sont controls, loop, muted, preload, autoplay (qui a la priorité sur Preload). </p>
+
+
+<h2>&lt;b&gt; pour mettre en gras en HTML*</h2>
+L'élément HTML <kbd><strong>b</strong></kbd> permet d'attirer l'attention du lecteur sur un contenu qui n'a pas, pour autant, d'importance significative. Anciennement utilisé pour mettre le texte en gras. Cet élément ne doit pas être utilisé pour mettre en forme des éléments, c'est la propriété CSS <kbd><strong>font-weight</strong></kbd> qu'il faut utiliser. Si l'élément est d'une importance particulière, on utilisera l'élément HTML <kbd><strong>strong</strong></kbd></a>.
+
+<h2>&lt;base&gt; pour mettre en gras en HTML*</h2>
+L'élément <kbd><strong>base</strong></kbd> définit l'URL de base à utiliser pour recomposer toutes les URL relatives contenues dans un document. Il ne peut y avoir qu'un seul élément <kbd><strong>base</strong></kbd> au sein d'un document.
+
+
+<h2>&lt;bdi&gt; l'élément d'isolation bidirectionnelle</h2>
+L'élément <kbd><strong>bdi</strong></kbd>  (ou élément d'isolation de texte bidirectionnel) isole une portée (<em>span</em>) de texte pouvant être formatée dans une direction différente de celle du texte qui l'entoure. Cela permet, par exemple, de présenter correctement une citation en arabe (écrit de droite à gauche) au sein d'un texte écrit en français (écrit de gauche à droite).
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<ul>*
+  <li><bdi style="color: red;">Evil Steven</bdi>: 1st place</li>
+  <li><bdi style="color: red;">François fatale</bdi>: 2nd place</li>
+  <li><span style="color: red;">سما</span>: 3rd place</li>
+  <li><bdi style="color: red;">الرجل القوي إيان</bdi>: 4th place</li>
+  <li><span style="color: red;" dir="auto">سما</span>: 5th place</li>
+</ul>
+  </code></pre>
+  </div> 
+
+<ul>
+    <li><bdi style="color: red;">Evil Steven</bdi>: 1st place</li>
+    <li><bdi style="color: red;">François fatale</bdi>: 2nd place</li>
+    <li><span style="color: red;">سما</span>: 3rd place</li>
+    <li><bdi style="color: red;">الرجل القوي إيان</bdi>: 4th place</li>
+    <li><span style="color: red;" dir="auto">سما</span>: 5th place</li>
+</ul>
+
+
+<h2>&lt;bdo&gt; l'élément de remplacement bidirectionnelle</h2>
+L'élément HTML <kbd><strong>bdo</strong></kbd> (pour élément de remplacement du texte bidirectionnel) est utilisé afin d'outrepasser la direction du texte. Cela permet d'imposer une direction donnée à un texte. L'orientation du texte est inversée mais pas celle des caractères.<br>CHANGE l'ordre des mots.
+
+
+<h1>Famous seaside songs</h1>
+<p>The English song "Oh I do like to be beside the seaside"</p>
+<p>Looks like this in Hebrew: <span dir="rtl">אה, אני אוהב להיות ליד חוף הים</span></p>
+<p>In the computer's memory, this is stored as <bdo dir="ltr">אה, אני אוהב להיות ליד חוף הים</bdo></p>
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<h1>Famous seaside songs</h1>
+<p>The English song "Oh I do like to be beside the seaside"</p>
+<p>Looks like this in Hebrew: <span dir="rtl">אה, אני אוהב להיות ליד חוף הים</span></p>
+<p>In the computer's memory, this is stored as <bdo dir="ltr">אה, אני אוהב להיות ליד חוף הים</bdo></p>
+  </code></pre>
+  </div> 
+
+
+
+
+<h2>&lt;blockquote&gt; l'élément de remplacement bidirectionnelle</h2>
+L'élément HTML <kbd><strong>blockquote</strong></kbd> (qui signifie bloc de citation) indique que le texte contenu dans l'élément est une citation longue. Le texte est généralement affiché avec une indentation . Une URL indiquant la source de la citation peut être donnée grâce à l'attribut cite tandis qu'un texte représentant la source peut être donné via l'élément  <kbd><strong>cite</strong></kbd>.
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<blockquote cite="https://www.huxley.net/bnw/four.html">
+  <p>Words can be like X-rays, if you use them properly—they’ll go through anything. You read and you’re pierced.</p>
+<footer>—Aldous Huxley, <cite>Brave New World</cite></footer>
+</blockquote> 
+  </code></pre>
+  </div> 
+
+
+<blockquote cite="https://www.huxley.net/bnw/four.html">
+    <p>Words can be like X-rays, if you use them properly—they’ll go through anything. You read and you’re pierced.</p>
+    <footer>—Aldous Huxley, <cite>Brave New World</cite></footer>
+  </blockquote>
+
+  <p>On peut mettre un pied de page (footer) à notre sitation.</p>
+
+
+  <h2>&lt;body&gt; l'élément pour le corps du document<span class="top">top</span></h2>
+  L'élément HTML  <kbd><strong>body</strong></kbd> représente le contenu principal du document HTML. Il ne peut y avoir qu'un élément <kbd><strong>body</strong></kbd> par document.
+
+  <h2>&lt;br&gt; l'élément de saut de ligne</h2>
+  L'élément HTML <kbd><strong>br</strong></kbd> crée un saut de ligne (un retour chariot) dans le texte. Il s'avère utile lorsque les sauts de ligne ont une importance (par exemple lorsqu'on écrit une adresse ou un poème).
+
+
+  <h2>&lt;button&gt; l'élément bouton<span class="top">top</span></h2>
+  Les éléments <kbd><strong>button</strong></kbd> sont beaucoup plus faciles à styliser que les éléments <kbd><strong>input</strong></kbd>. Vous pouvez ajouter du contenu HTML interne (pensez à <kbd><strong>i</strong></kbd>, <kbd><strong>br</strong></kbd>, ou même <kbd><strong>img</strong></kbd>), et utiliser les pseudo-éléments <kbd><strong>::after</strong></kbd> et <kbd><strong>::before</strong></kbd> pour un rendu complexe.</p>
+  <p>Si vos boutons ne servent pas à soumettre des données de formulaire à un serveur, assurez-vous de définir leur attribut <kbd><strong>type</strong></kbd> à <kbd><strong>button</strong></kbd>. Sinon, ils tenteront de soumettre des données de formulaire et de charger la réponse (inexistante), détruisant éventuellement l'état actuel du document.</p>
+  <p>Bien que <kbd><strong>&lt;button type="button"&gt;</strong></kbd> n'ait pas de comportement par défaut, on peut utiliser des gestionnaires d'évènements scriptés pour déclencher certaines actions. Un bouton pourra déclencher des actions grâce à JavaScript, par exemple pour retirer un élément d'une liste.</p>
+
+  <p>Firefox ajoute une bordure en pointillés sur le bouton qui a le focus. Cette bordure est ajoutée via la feuille de style du navigateur et il est possible de la surcharger avec son propre style via <kbd><strong>button::-moz-focus-inner { }</strong></kbd></p>
+
+
+
+  <h2>&lt;canvas&gt; l'élément de canevas graphique</h2>
+On utilise l'élément <kbd><strong>canvas</strong></kbd> avec l'API canvas, ou l'API WebGL pour dessiner des graphiques et des animations.<br>
+<span> width</span> : La largeur de l'espace pour l'élément, exprimée en pixels CSS. La valeur par défaut est 300px.</p>
+
+<p>À la différence de <kbd><strong>img</strong></kbd>, l'élément <kbd><strong>canvas</strong></kbd>doit être fermé avec la balise fermante &lt;/canvas&gt;</p>
+
+
+<h2>&lt;caption&gt; : l'élément de légende d'un tableau</h2>
+
+<p>L'élément <kbd><strong>caption</strong></kbd>définit la légende (ou le titre) d'un tableau.</p>
+
+<p>html :</p>
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+    <code>
+      &lt;caption&gt;
+          He-Man and Skeletor facts
+      &lt;/caption&gt;
+  </code><br>
+  </code></pre>
+  </div>
+
+
+<p>css :</p>
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+    caption {
+      &nbsp;&nbsp;&nbsp;padding: 10px;
+      &nbsp;&nbsp;&nbsp;caption-side: bottom;
+    }
+  </code></pre>
+  </div>
+
+<h2>&lt;cite&gt; : l'élément de citation</h2>
+L'élément <kbd><strong>cite</strong></kbd> contient le titre d'une œuvre telle qu'un livre, une chanson, un film, une sculpture… Cet élément doit inclure le titre de l'œuvre. Cette référence peut-être abrégée en accord avec les conventions d'usages pour l'ajout des métadonnées de citations.
+
+Voici des exemples d'œuvres auxquelles on pourrait faire référence grâce à un élément <kbd><strong>cite</strong></kbd>:</p>
+<ul>
+  <li>Un livre</li>
+  <li>Un article de recherche</li>
+  <li>Un essai</li>
+  <li>Un poème</li>
+  <li>Une pièce musicale</li>
+  <li>Une chanson</li>
+  <li>Le script d'une pièce ou d'un film</li>
+  <li>Un film</li>
+  <li>Une émission télévisée</li>
+  <li>Un jeu</li>
+  <li>Une sculpture</li>
+  <li>Une peinture</li>
+  <li>Une pièce de théâtre</li>
+  <li>Un opéra</li>
+  <li>Une comédie musicale</li>
+  <li>Une exposition</li>
+  <li>Les minutes d'un procès</li>
+  <li>Un programme informatique</li>
+  <li>Un site web</li>
+  <li>Une page web</li>
+  <li>Un billet de blog ou un commentaire</li>
+  <li>Un billet ou un commentaire sur un forum</li>
+  <li>Une déclaration écrite ou orale</li>
+  <li>etc.</li>
+</ul>
+<p>Il convient de noter que la spécification du W3C dit qu'une référence à une œuvre créative, telle qu'incluse dans un élément <kbd><strong>cite</strong></kbd>, peut inclure le nom de l'auteur de l'œuvre. Cependant, la spécification WHATWG pour <kbd><strong>cite</strong></kbd> dit le contraire : le nom d'une personne ne doit <em>jamais</em> être inclus, en toutes circonstances.</p>
+<p>Pour inclure une référence à la source du matériel cité qui est contenu dans un élément <kbd><strong>blockquote</strong></kbd> ou <kbd><strong>q</strong></kbd> , utilisez l'attribut<kbd><strong>cite</strong></kbd> sur l'élément.</p>
+
+<p>En général, les navigateurs donnent un style au contenu d'un élément <kbd><strong>cite</strong></kbd> en italique par défaut. Pour éviter cela, appliquez la propriété CSS <kbd><strong>cite</strong></kbd> à l'élément <kbd><strong>cite</strong></kbd>.</p>
+
+<h2>&lt;code&gt; : l'élément de citation</h2>
+<p>L'élément HTML <kbd><strong>blockquote</strong></kbd>  représente un court fragment de code machine. Par défaut, l'agent utilisateur utilise une police à chasse fixe (<em>monospace</em>) afin d'afficher le texte contenu dans cet élément.</p>
+
+<h2>&lt;code&gt; : l'élément code en ligne</h2>
+Une règle CSS peut être définie pour le sélecteur <kbd><strong>code</strong></kbd> afin de remplacer la fonte par défaut du navigateur. Les préférences définies par l'utilisateur peuvent avoir la priorité sur la règle CSS spécifiée.
+
+
+
+<h2>&lt;col&gt; : l'élément représentant une colonne</h2>
+
+L'élément HTML <kbd><strong>col</strong></kbd> définit une colonne appartenant à un tableau et est utilisé afin de définir la sémantique commune à toutes ses cellules. On trouve généralement cet élément au sein d'un élément </span>.
+
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+    caption {
+      &nbsp;&nbsp;&nbsp;padding: 10px;
+      &nbsp;&nbsp;&nbsp;caption-side: bottom;
+    }
+  </code></pre>
+  </div>
+
+
+<table>
+    <caption>
+      Superheros and sidekicks
+    </caption>
+    <colgroup>
+      <col />
+      <col span="2" class="batman" />
+      <col span="2" class="flash" />
+    </colgroup>
+    <tr>
+      <td></td>
+      <th scope="col">Batman</th>
+      <th scope="col">Robin</th>
+      <th scope="col">The Flash</th>
+      <th scope="col">Kid Flash</th>
+    </tr>
+    <tr>
+      <th scope="row">Skill</th>
+      <td>Smarts</td>
+      <td>Dex, acrobat</td>
+      <td>Super speed</td>
+      <td>Super speed</td>
+    </tr>
+  </table>
+
+
+  <h2>&lt;colgroup&gt; : l'élément regroupant des colonnes</h2>
+
+  <p>L'élément HTML <kbd><strong>colgroup</strong></kbd>définit un groupe de colonnes au sein d'un tableau.</p>
+
+
+  <h2>&lt;data&gt; :  l'élément de données</h2>
+<p>L'élément HTML <kbd><strong>data</strong></kbd> définit un groupe de colonnes au sein d'un tableau.</p>
+relie un contenu à une version de ce contenu interprétable par un ordinateur. Si le contenu possède une composante temporelle, l'élément <kbd><strong>time</strong></kbd> doit être utilisé.</p>
+
+<p>L'attribut <strong>VALUE </strong>  définit la version du contenu qui doit être interprétée par une machine.</p>
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<p>Nouveaux produits</p>
+<ul>
+  <li><data value="398">Mini voiture</data></li>
+  <li><data value="400">Grande voiture</data></li>
+  <li><data value="410">Énorme voiture</data></li>
+</ul>
+</code></pre>
+  </div> 
+
+<p>Voir aussi l'élément <kbd><strong>datalist</strong></kbd>.</p>
+
+<h2>&lt;datalist&gt; : l'élément de liste des données</h2>
+<p>L'élément HTML <kbd><strong>datalist</strong></kbd> contient un ensemble d'éléments <kbd><strong>option</strong></kbd> qui représentent les valeurs possibles pour d'autres contrôles.</p>
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<p>Choisir parmi Chocolat, coconut, mint, strawberry, vanilla, banana,...</p>
+  <label for="ice-cream-choice">Choose a flavor:</label>
+  <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
+  </code></pre>
+  </div> 
+
+
+<p>Choisir parmi Chocolat, coconut, mint, strawberry, vanilla, banana,...</p>
+<label for="ice-cream-choice">Choose a flavor:</label>
+<input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+    <datalist id="ice-cream-flavors">
+      <option value="Chocolate"></option>
+      <option value="Coconut"></option>
+      <option value="Mint"></option>
+      <option value="Strawberry"></option>
+      <option value="Vanilla"></option>
+      <option value="Banana"></option>
+    </datalist>
+  </code></pre>
+  </div>
+
+
+
+
+
+
+<h2>&lt;dd&gt; : l'élément de détail d'une description</h2>
+<p>L'élément HTML <kbd><strong>dd</strong></kbd> fournit la description, la définition ou la valeur du terme précédent <kbd><strong>dt</strong></kbd> dans une liste de description <kbd><strong>dl</strong></kbd>.</p>
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+    <p>Cryptids of Cornwall:</p>
+
+    <dl>
+      <dt>Beast of Bodmin</dt>
+      <dd>A large feline inhabiting Bodmin Moor.</dd>
+    
+      <dt>Morgawr</dt>
+      <dd>A sea serpent.</dd>
+    
+      <dt>Owlman</dt>
+      <dd>A giant owl-like creature.</dd>
+    </dl>
+  </code></pre>
+  </div>
+
+
+
+<p>Cryptids of Cornwall:</p>
+
+<dl>
+  <dt style="font-weight:bold;">Beast of Bodmin</dt>
+  <dd style="text-indent : 10px;">A large feline inhabiting Bodmin Moor.</dd>
+
+  <dt style="font-weight:bold;">Morgawr</dt>
+  <dd style="text-indent : 10px;">A sea serpent.</dd>
+
+  <dt style="font-weight:bold;">Owlman</dt>
+  <dd style="text-indent : 10px;">A giant owl-like creature.</dd>
+</dl>
+
+<p>Voir aussi l'élément <kbd><strong>dl</strong></kbd> et <kbd><strong>dt</strong></kbd>.</p>
+
+
+<h2>&lt;del&gt; : l'élément de texte supprimé</h2>
+<p>L'élément HTML <kbd><strong>del</strong></kbd> représente une portion de texte ayant été supprimée d'un document. Cet élément est souvent (mais pas nécessairement) affiché rayé. L'élément <kbd><strong>ins</strong></kbd> est quant à lui utilisé pour représenter des portions de texte ajoutées.</p>
+
+    <!-- del {
+        text-decoration: line-through;
+        background-color: #fbb;
+        color: #555;
+      }
+      
+      ins {
+        text-decoration: none;
+        background-color: #d4fcbc;
+      }
+      
+      blockquote {
+        padding-left: 15px;
+        border-left: 3px solid #d7d7db;
+        font-size: 1rem;
+      } -->
+
+
+
+      <div class="code-container">
+        <button class="copy" onclick="copyCode()">Copier code</button>
+        <pre><code class="code-block">
+<blockquote style="padding-left: 15px; border-left: 3px solid #d7d7db; font-size: 1rem;">
+  There is <del style="text-decoration: line-through; background-color: #fbb; color: #555;">nothing</del> 
+  <ins style="text-decoration: none; background-color: #d4fcbc;" >no code</ins> either good or bad, but <del style="text-decoration: line-through; background-color: #fbb; color: #555;">thinking</del> 
+  <ins style="text-decoration: none; background-color: #d4fcbc;">running it</ins> makes
+  it so.
+</blockquote>
+        </code></pre>
+        </div> 
+
+
+
+
+
+    <blockquote style="padding-left: 15px; border-left: 3px solid #d7d7db; font-size: 1rem;">
+        There is <del style="text-decoration: line-through; background-color: #fbb; color: #555;">nothing</del> 
+        <ins style="text-decoration: none; background-color: #d4fcbc;" >no code</ins> either good or bad, but <del style="text-decoration: line-through; background-color: #fbb; color: #555;">thinking</del> 
+        <ins style="text-decoration: none; background-color: #d4fcbc;">running it</ins> makes
+        it so.
+    </blockquote>
+
+
+    <h2>&lt;details&gt; : l'élément de divulgation des détails</h2>
+    <p>L'élément HTML <kbd><strong>details</strong></kbd> est utilisé comme un outil permettant de révéler une information. Un résumé ou un intitulé peuvent être fournis grâce à un élément<kbd><strong>summary</strong></kbd>.</p>
+
+    <p>La plupart du temps, le contrôle utilisé pour cet élément est un triangle qui est tourné ou tordu afin d'indiquer si l'élément est révélé ou non. Si le premier élément fils de l'élément <kbd><strong>details</strong></kbd> est un élément <kbd><strong>summary</strong></kbd>, c'est le contenu de ce dernier qui est utilisé comme intitulé pour le contenu à révéler (l'intitulé est donc toujours visible).</p>
+
+
+
+    <!-- details {
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        padding: 0.5em 0.5em 0;
+        width: auto;
+      }
+      
+      summary {
+        font-weight: bold;
+        margin: -0.5em -0.5em 0;
+        padding: 0.5em;
+      }
+      
+      details[open] {
+        padding: 0.5em;
+      }
+      
+      details[open] summary {
+        border-bottom: 1px solid #aaa;
+        margin-bottom: 0.5em;
+      } -->
+
+
+      <div class="code-container">
+        <button class="copy" onclick="copyCode()">Copier code</button>
+        <pre><code class="code-block">
+<details style="width: 100%;">
+  <summary style="width: 100%; background-color:#d7d9f2">Details</summary>
+  Quelque chose d'assez petit pour ne pas être remarqué.Something small enough to escape casual notice.
+</details>
+        </code></pre>
+        </div> 
+
+    <details style="width: 100%">
+        <summary style="width: 60px; background-color:#d7d9f2">Details</summary>
+        Quelque chose d'assez petit pour ne pas être remarqué.Something small enough to escape casual notice.
+      </details>
+
+      <h2>&lt;dfn&gt; : l'élément de définition</h2>
+      <p>L'élément HTML <kbd><strong>dfn</strong></kbd> (aussi nommé « définition ») est utilisé pour indiquer le terme défini dans le contexte d'une expression ou d'une phrase de définition. L'élément <kbd><strong>p</strong></kbd>, le couple <kbd><strong>dt</strong></kbd> <kbd><strong>dd</strong></kbd><kbd><strong>dd</strong></kbd> ou l'élément <kbd><strong>section</strong></kbd> qui est le plus proche ancêtre de <kbd><strong>dfn</strong></kbd> est considéré comme la définition du terme.
+     </p>
+
+     <p>A <dfn id="def-validator">validator</dfn> is a program that checks for syntax errors in code or documents.</p>
+
+
+     <h2>&lt;dialog&gt; : l'élément de boîte de dialogue<span class="top">top</span></h2>
+
+     <p>L'élément HTML <kbd><strong>dialog</strong></kbd> représente une boite de dialogue ou un composant interactif (par exemple un inspecteur ou une fenêtre).</p>
+     <p>L'élément HTML <kbd><strong>dialog</strong></kbd> est utilisé pour créer des boîtes de dialogue modale qui peuvent être interactives ou non. Les boîtes de dialogue modale interrompent l'interaction, le reste de la page étant inerte, tandis que les boîtes de dialogue non-modale permettent une interaction avec le reste de la page.</p>
+
+     <p>JavaScript peut être utilisé pour afficher l'élément <kbd><strong>dialog</strong></kbd>. L'utilisation de la méthode <kbd><strong>.showModal()</strong></kbd> <small>(en-US)</small> pour afficher une boîte de dialogue modale et la méthode <kbd><strong>.show()</strong></kbd> <small>(en-US)</small> pour afficher une boîte de dialogue non-modale. La boîte de dialogue peut être fermée à l'aide de la méthode <kbd><strong>.close()</strong></kbd> <small>(en-US)</small> ou en utilisant la méthode 
+      <kbd><strong>dialog</strong></kbd> lors de la soumission d'un formulaire <kbd><strong>form</strong></kbd> imbriqué dans l'élément 
+        <kbd><strong>dialog</strong></kbd>. Les boîtes de dialogue modales peuvent également être fermées en appuyant sur la touche <kbd><strong>Échap</strong></kbd>.</p>
+
+    <h2>&lt;div&gt; : l'élément de division du contenu <span class="top">top</span></h2>
+    <p>L'élément HTML <kbd><strong>div</strong></kbd> (ou division) est le conteneur générique du contenu du flux. Il n'a aucun effet sur le contenu ou la mise en page tant qu'il n'est pas mis en forme d'une manière quelconque à l'aide de CSS.</p>
+
+    <h2>&lt;dl&gt; : l'élément de liste de descriptions</h2>
+    <p> L'élément HTML <kbd><strong>dl</strong></kbd> représente une liste de descriptions sous la forme d'une liste de paires associant des termes (fournis par des éléments <kbd><strong>dt</strong></kbd>) et leurs descriptions ou définitions fournies par des éléments <kbd><strong>dd</strong></kbd>. On utilisera par exemple cet élément pour implémenter un glossaire. </p>
+
+    <p>Cryptids of Cornwall:</p>
+
+<dl>
+  <dt style="font-weight: bold">Beast of Bodmin</dt>
+  <dd style="text-indent: 10px;">A large feline inhabiting Bodmin Moor.</dd>
+
+  <dt style="font-weight: bold">Morgawr</dt>
+  <dd style="text-indent: 10px;">A sea serpent.</dd>
+
+  <dt style="font-weight: bold">Owlman</dt>
+  <dd style="text-indent: 10px;">A giant owl-like creature.</dd>
+</dl>
+
+<h2>&lt;dt&gt; : l'élément pour le terme d'une description</h2>
+   <p> L'élément HTML <kbd><strong>dt</strong></kbd> identifie un terme dans une liste de définitions ou de descriptions. Cet élément n'apparaît qu'en tant qu'élément enfant d'un élément <kbd><strong>dl</strong></kbd> et est généralement suivi d'un élément <kbd><strong>dd</strong></kbd>. Plusieurs éléments <kbd><strong>dd</strong></kbd> qui se suivent indiqueront qu'ils partagent la définition/description fournie par le prochain élément <kbd><strong>dd</strong></kbd>.</p>
+
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<p>Please use the following paint colors for the new house:</p>
+
+<dl>
+  <dt>Denim (semigloss finish)</dt>
+  <dd>Ceiling</dd>
+  <dt>Denim (eggshell finish)</dt>
+  <dt>Evening Sky (eggshell finish)</dt>
+  <dd>Layered on the walls</dd>
+</dl>
+  </code></pre>
+  </div> 
+
+
+
+   <p>Please use the following paint colors for the new house:</p>
+
+   <dl>
+     <dt>Denim (semigloss finish)</dt>
+     <dd>Ceiling</dd>
+     <dt>Denim (eggshell finish)</dt>
+     <dt>Evening Sky (eggshell finish)</dt>
+     <dd>Layered on the walls</dd>
+   </dl>
+
+
+
+
+   <h2>&lt;em&gt; : l'élément d'emphase</h2>
+  <p>L'élément HTML <kbd><strong>em</strong></kbd> (pour emphase) est utilisé afin de marquer un texte sur lequel on veut insister. Les éléments <kbd><strong>em</strong></kbd> peuvent être imbriqués, chaque degré d'imbrication indiquant un degré d'insistance plus élevé. </p> 
+
+  <p>Get out of bed <em>now</em>!</p>
+
+  <h2>&lt;embed&gt; : l'élément de contenu externe embarqué</h2>
+
+  <p>L'élément HTML <kbd><strong>embed</strong></kbd> permet d'intégrer du contenu externe à cet endroit dans le document. Le contenu peut être fourni par une application externe ou une autre source telle qu'un <em>plugin</em> du navigateur.</p>
+
+  Exemple: pour intégrer une vidéo ou una pege web (voir  Iframe)<br>
+
+
+  <div class="code-container">
+    <button class="copy" onclick="copyCode()">Copier code</button>
+    <pre><code class="code-block">
+      &lt;embed type="video/webm" src="/media/cc0-videos/flower.mp4" width="250" height="200" /&gt;
+    </code></pre>
+    </div> 
+
+
+
+
+
+  <h2>&lt;fieldset&gt; : l'élément pour les ensembles de champs<span class="top">top</span></h2>
+
+<p>L'élément HTML <kbd><strong>fieldset</strong></kbd> est utilisé afin de regrouper plusieurs contrôles interactifs ainsi que des étiquettes <kbd><strong>label</strong></kbd> dans un formulaire HTML.</p>
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<form>
+  <fieldset>
+    <legend>Choose your favorite monster</legend>
+
+    <input type="radio" id="kraken" name="monster" value="K" />
+    <label for="kraken">Kraken</label><br />
+    
+    <input type="radio" id="sasquatch" name="monster" value="S" />
+    <label for="sasquatch">Sasquatch</label><br />
+    
+    <input type="radio" id="mothman" name="monster" value="M" />
+    <label for="mothman">Mothman</label>
+  </fieldset>
+</form>
+  </code></pre>
+  </div>
+
+
+
+
+
+<form>
+    <fieldset>
+      <legend>Choose your favorite monster</legend>
+  
+      <input type="radio" id="kraken" name="monster" value="K" />
+      <label for="kraken">Kraken</label><br />
+  
+      <input type="radio" id="sasquatch" name="monster" value="S" />
+      <label for="sasquatch">Sasquatch</label><br />
+  
+      <input type="radio" id="mothman" name="monster" value="M" />
+      <label for="mothman">Mothman</label>
+    </fieldset>
+  </form>
+
+
+
+  <h2>&lt;figcaption&gt; : l'élément de légende d'une figure</h2>
+  <p>L'élément HTML <kbd><strong>figcaption</strong></kbd> représente une légende décrivant le reste du contenu de son élément parent <kbd><strong>figure</strong></kbd>.</p>
+
+<p>Voir FIGURE</p>
+
+  <h2>&lt;figure&gt; : l'élément de figure avec légende facultative<span class="top">top</span></h2>
+
+<p> L'élément HTML <kbd><strong>figure</strong></kbd> représente un contenu autonome, éventuellement accompagné d'une légende facultative, qui est spécifiée à l'aide de l'élément <kbd><strong>figcaption</strong></kbd>. La figure, sa légende et son contenu sont référencés comme une seule unité.</p>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<figure>
+  <img src="https://via.placeholder.com/660x480" alt="Elephant at sunset">
+  <figcaption>An elephant at sunset</figcaption>
+</figure>
+  </code></pre>
+  </div>
+
+  <figure>
+    <img src="https://via.placeholder.com/660x480" alt="Elephant at sunset">
+    <figcaption>An elephant at sunset</figcaption>
+  </figure>
+
+
+  
+  <!-- <p>
+    &lt;figure&gt; <br>
+    &lt;img src="https://via.placeholder.com/660x480" alt="Elephant at sunset"&gt;<br>
+    &lt;figcaption>An elephant at sunset&lt;/figcaption&gt;<br>
+    &lt;/figure&gt;<br>
+</p>  -->
+
+<h2>&lt;footer&gt; : l'élément de pied de page ou de section<span class="top">top</span></h2>
+<p>
+L'élément HTML <kbd><strong>footer</strong></kbd>  représente le pied de page de la section ou de la racine de sectionnement la plus proche. Un élément <kbd><strong>footer</strong></kbd> contient habituellement des informations légales, sur le RGPD ou encore sur l'autrice ou l'auteur de la section, les données relatives au droit d'auteur (<em>copyright</em>) ou les liens vers d'autres documents en relation, comme des liens vers les réseaux sociaux.
+</p>
+
+<h2>&lt;form&gt; : l'élément représentant un formulaire<span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>form</strong></kbd>  représente un formulaire, c'est-à-dire une section d'un document qui contient des contrôles interactifs permettant à un utilisateur de fournir des informations.</p>
+<p>Pour faire simple, il existe 6 principaux éléments qui constituent un formulairme :</p>
+
+<ul>
+    <li>champs texte (input)</li>
+    <li>champ texte multi ligne ou zone de texte (textarea)</li>
+    <li>case à cocher (checkbox type checkbox)</li>
+    <li>boutons radio (checkbox type radio)</li>
+    <li>champ déroulant (select avec option)</li>
+</ul>
+
+<h2>&lt;h1&gt;-&lt;h6&gt; : les éléments de titre de section<span class="top">top</span></h2>
+<p>Les éléments HTML <kbd><strong>h1</strong></kbd>  à <kbd><strong>h6</strong></kbd>  représentent les six niveaux de titre de section. <kbd><strong>h1</strong></kbd> correspond au niveau de section le plus haut et <kbd><strong>h6</strong></kbd> correspond au niveau le plus faible.</p>
+
+<h1 style="color: black; font-family:inherit; font-size: 30px"> Titre h1</h1>
+<h2 style="background-color: transparent; color: black; text-indent: 0;font-size: 20px">Titre h2</h2>
+<h3 style="font-size: 18px">Titre h3</h3>
+<h4 style="font-size: 16px">Titre h4</h4>
+<h5 style="font-size: 14px">Titre h5</h5>
+<h6 style="font-size: 12px">Titre h6</h6>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+  <h1>Titre h1</h1>
+  <h2>Titre h2</h2>
+  <h3>Titre h3</h3>
+  <h4>Titre h4</h4>
+  <h5>Titre h5</h5>
+  <h6>Titre h6</h6>
+  </code></pre>
+  </div> 
+
+
+
+
+    <ul>
+    <li>Les informations de titre peuvent être utilisées par les agents utilisateur afin de construire automatiquement la table des matières d'un document.</li>
+    <li>Il ne faut pas utiliser des éléments de titre pour ajuster la taille du texte. Pour cela, on utilisera la propriété CSS <kbd><strong>font-size</strong></kbd>.</li>
+    <li>Il ne faut pas sauter de niveaux entre les titres&nbsp;: on commencera toujours par <kbd><strong>h1</strong></kbd>, suivi <kbd><strong>h2</strong></kbd> et ainsi de suite.</li>
+  </ul>
+<h3>Éviter d'avoir plusieurs éléments <kbd><strong>h1</strong></kbd> sur une page</h3>
+
+<p>Bien qu'il soit permis par le standard HTML d'utiliser plusieurs éléments <kbd><strong>h1</strong></kbd> sur une même page tant que ceux-ci ne sont pas imbriqués, cela est considéré comme une mauvaise pratique. Une page devrait généralement avoir un seul élément <kbd><strong>h1</strong></kbd> qui décrit le contenu de la page (semblable à l'élément <kbd><strong>title</strong></kbd>).</p>
+
+
+
+<h2>&lt;head&gt; : l'élément de métadonnées (en-tête) du document<span class="top">top</span></h2>
+
+<p>L'élément HTML <kbd><strong>head</strong></kbd> fournit des informations générales (métadonnées) sur le document, incluant son titre et des liens ou des définitions vers des scripts et feuilles de style.</p>
+
+
+<h2>&lt;header&gt;<span class="top">top</span></h2>
+
+<p>L'élément HTML <kbd><strong>header</strong></kbd> représente du contenu introductif, généralement un groupe de contenu introductif ou de contenu aidant à la navigation. Il peut contenir des éléments de titre, mais aussi d'autres éléments tels qu'un logo, un formulaire de recherche, le nom d'auteur, etc.</p>
+
+<p>On peut utiliser header comme entete d'une page web, avec le logo OU bien une entete de la balise article, dans ce cas le header comprendra le titre de l'article ,la date, l'auteur, etc...</p>
+
+
+
+
+<h2>&lt;hgroup&gt;</h2>
+
+<p>L'élément HTML <kbd><strong>hgroup</strong></kbd> représente un titre et son contenu associé. Il regroupe un élément <kbd><strong>h1</strong></kbd> <kbd><strong>h2</strong></kbd> avec un ou plusieurs paragraphes <kbd><strong>p</strong></kbd>.</p>
+
+
+
+
+
+
+
+<hgroup>
+    <h1 style="text-align:right">Frankenstein</h1>
+    <p>Or: The Modern Prometheus</p>
+  </hgroup>
+  <p>
+    Victor Frankenstein, a Swiss scientist, has a great ambition: to create intelligent life. But when his creature first
+    stirs, he realizes he has made a monster. A monster which, abandoned by his master and shunned by everyone who sees
+    it, follows Dr Frankenstein to the very ends of the earth.
+  </p>
+
+  <div class="code-container">
+    <button class="copy" onclick="copyCode()">Copier code</button>
+    <pre><code class="code-block">
+
+<hgroup>
+  <h1>Frankenstein</h1>
+  <p>Or: The Modern Prometheus</p>
+</hgroup>
+<p>
+  Victor Frankenstein, a Swiss scientist, has a great ambition: to create intelligent life. But when his creature first
+  stirs, he realizes he has made a monster. A monster which, abandoned by his master and shunned by everyone who sees
+  it, follows Dr Frankenstein to the very ends of the earth.
+</p>
+    </code></pre>
+  </div> 
+
+
+
+
+
+
+
+
+
+
+
+<h2>&lt;hr&gt; : l'élément de rupture thématique (règle horizontale)</h2>
+<p> L'élément HTML <kbd><strong>hr</strong></kbd> représente un changement thématique entre des éléments de paragraphe (par exemple, un changement de décor dans un récit, un changement de sujet au sein d'une section).</p>
+     
+<h2>&lt;html&gt; : l'élément de racine du document HTML<span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>html</strong></kbd> représente la racine d'un document HTML ou XHTML. Tout autre élément du document doit être un descendant de cet élément.</p>
+     
+<p>&lt;doctype html&gt; spécifie que nous sommes en HTML5</p>
+     
+<p>Un attribut est fortement recommandé dans la balise ouvrante html, l'attribut lang="fr"</p>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+    &lt;!DOCTYPE html&gt; 
+    &lt;html lang="fr"&gt; 
+    &lt;head&gt; 
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+      <title>Document</title>
+      <style>
+
+      </style>
+    &lt;/head&gt;
+    &lt;body&gt;
+        
+    &lt;/body&gt;
+    &lt;/html&gt; 
+  </code></pre>
+  </div> 
+
+
+
+<!-- <div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<!-- Page modele HTML vierge -->
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+    &lt;title>Document&lt;/title&gt;
+  &lt;style&gt;
+    
+            
+  &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+        
+  &lt;/body&gt;
+&lt;/html&gt;
+  </code></pre>
+  </div>  -->
+
+
+  <h2>&lt;hr&gt; : l'élément de rupture thématique (règle horizontale)</h2>
+ <p> L'élément HTML <kbd><strong>hr</strong></kbd> représente un changement thématique entre des éléments de paragraphe (par exemple, un changement de décor dans un récit, un changement de sujet au sein d'une section).</p>
+
+ <h2>&lt;html&gt; : l'élément de racine du document HTML<span class="top">top</span></h2>
+ <p>L'élément HTML <kbd><strong>html</strong></kbd> représente la racine d'un document HTML ou XHTML. Tout autre élément du document doit être un descendant de cet élément.</p>
+
+<p>&lt;doctype html&gt; spécifie que nous sommes en HTML5</p>
+
+<p>Un attribut est fortement recommandé dans la balise ouvrante html, l'attribut lang="fr"</p>
+
+
+
+
+<h2>&lt;i&gt; : l'élément de racine du document HTML</h2>
+<p>L'élément HTML <kbd><strong>i</strong></kbd> représente un morceau de texte qui se différencie du texte principal. Cela peut par exemple être le cas pour des termes techniques, des phrases dans une langue étrangère ou encore l'expression des pensées d'un personnage. Le contenu de cet élément est généralement affiché en italique.</p>
+
+
+<p>I looked at it and thought <i>This can't be real!</i></p>
+
+
+
+<h2>&lt;iframe&gt; : l'élément de cadre intégré</h2>
+<p>L'élément HTML <kbd><strong>iframe</strong></kbd> représente 
+
+
+    <iframe style="border: 1px solid black; width: 100%;"
+    id="inlineFrameExample"
+    title="Inline Frame Example"
+    width="300"
+    height="200"
+    src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+  </iframe>
+
+
+  <div class="code-container">
+    <button class="copy" onclick="copyCode()">Copier code</button>
+    <pre><code class="code-block">
+<iframe style="border: 1px solid black; width: 100%;"
+  id="inlineFrameExample"
+  title="Inline Frame Example"
+  width="300"
+  height="200"
+  src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+ </iframe>
+    </code></pre>
+    </div> 
+
+
+
+
+
+  
+<p>on peut aussi intégré une page web MAIS attention cela peut représenter une mauvaise habitude pour le référencement.</p>
+
+
+<h2>&lt;img&gt; : l'élément d'image embarquée <span class="top">top</span></h2>
+<p>L'élément HTML<kbd><strong>img</strong></kbd> permet d'intégrer une image dans un document.</p>
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+
+  <img src="images/fleur1.jpg" alt="La marguerite, fleur jaune avec des pétales blanches" title="Marguerite, petite fleur des champs" >
+
+  </code></pre>
+  </div> 
+
+
+<h2>&lt;input&gt; : l'élément de saisie dans un formulaire <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>input</strong></kbd> est utilisé pour créer un contrôle interactif dans un formulaire web qui permet à l'utilisatrice ou l'utilisateur de saisir des données. Les saisies possibles et le comportement de l'élément <kbd><strong>input</strong></kbd> dépendent fortement de la valeur indiquée dans son attribut <kbd><strong>type</strong></kbd> et de ses autres attributs.</p>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+  <label for="nom">Nom (4 à 8 caractères):</label><br>
+<input type="text" id="nom" name="nom" required minlength="4" maxlength="8" size="10" autofocus />
+  </code></pre>
+  </div>
+
+  <input type="text" id="nom" name="nom" required minlength="4" maxlength="8" size="10" autofocus />
+</code></pre>
+
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<label for="nom">Nom (4 à 8 caractères):</label>
+<input type="text" id="nom" name="nom" required minlength="4" maxlength="8" size="10" />
+  </code></pre>
+  </div> 
+
+
+<p>
+Les types possibles sont nombreux et variés : button, checkbox, color, date, datetime-local, email, file, hidden, 
+image, month, number, password, radio, range, reset, search, submit, tel, text, time, url  , week. Attention: datetime est obsolète. </p>
+
+<code>
+<label for="">Input de type texte</label> <input type="text">
+</code>
+<code>
+<label for="">Input de type password</label> <input type="password">
+</code>
+<code>
+<label for="">Input de type file</label> <input type="file" accept=".jpg, .pdf">
+</code>
+<code>
+<label for="">Input de type button </label> <input type="button">
+</code>
+<code>
+<label for="">Input de type email</label> <input type="email" >
+</code>
+<code>
+  <label for="">Input de type tel</label> <input type="tel" >
+  </code>
+<code>
+<label for="">Input de type image</label> <input type="image" >
+</code>
+<code>
+  <label for="">Input de type date</label> <input type="date" >
+</code>
+<code>
+<label for="">Input de type month</label> <input type="month" >
+</code>
+<code>
+  <label for="">Input de type number</label> <input type="number" >
+</code>
+<code>
+  <label for="">Input de type time</label> <input type="time" >
+</code>
+<code>
+  <label for="">Input de type datetime-local</label> <input type="datetime-local" >
+</code>
+<code>
+  <label for="">Input de type color</label> <input type="color" >
+</code>
+<code>
+  <label for="">Input de type hidden</label> <input type="hidden" >
+</code>
+<code>
+  <label for="">Input de type checkbox</label> <input type="checkbox" >
+</code>
+<code>
+  <label for="">Input de type radio</label> <input type="radio" >
+</code>
+<code>
+  <label for="">Input de type range</label> <input type="range" >
+</code>
+<code>
+  <label for="">Input de type reset</label> <input type="reset" >
+</code>
+<code>
+  <label for="">Input de type week</label> <input type="week" >
+</code>
+<code>
+  <label for="">Input de type url</label> <input type="url" >
+</code>
+<code>
+  <label for="">Input de type submit</label> <input type="submit" >
+</code>
+
+<h2>&lt;ins&gt; : l'élément de cadre intégré</h2>
+<p>L'élément HTML <kbd><strong>ins</strong></kbd> représente un fragment de texte qui a été ajouté dans un document. <br>
+Note : À l'inverse, on pourra utiliser l'élément <del> afin de représenter un fragment de texte supprimé.</p>
+
+    <p>“You're late!”</p>
+    <del>
+      <p>“I apologize for the delay.”</p>
+    </del>
+    <ins cite="https://www.francoisduarte.fr/" datetime="2018-05">
+      <p>“A wizard is never late …”</p>
+    </ins>
+
+<div class="code-container">
+<button class="copy" onclick="copyCode()">Copier code</button>
+<pre><code class="code-block">
+
+  ins::before,
+  ins::after {
+  &nbsp;&nbsp;&nbsp;  clip-path: inset(100%);
+  &nbsp;&nbsp;&nbsp;   clip: rect(1px, 1px, 1px, 1px);
+  &nbsp;&nbsp;&nbsp;   height: 1px;
+  &nbsp;&nbsp;&nbsp;   overflow: hidden;
+  &nbsp;&nbsp;&nbsp;   position: absolute;
+  &nbsp;&nbsp;&nbsp;   white-space: nowrap;
+  &nbsp;&nbsp;&nbsp;   width: 1px;
+  }
+  
+  ins::before {
+      &nbsp;&nbsp;&nbsp;   content: " [Début de l'insertion]";
+  }
+  
+  ins::after {
+      &nbsp;&nbsp;&nbsp;   content: " [Fin de l'insertion] ";
+  }
+
+</code></pre>
+</div> 
+
+
+
+<!-- <p>
+    <code>
+        ins::before,<br>
+        ins::after {<br>
+        &nbsp;&nbsp;&nbsp;  clip-path: inset(100%);<br>
+        &nbsp;&nbsp;&nbsp;   clip: rect(1px, 1px, 1px, 1px);<br>
+        &nbsp;&nbsp;&nbsp;   height: 1px;<br>
+        &nbsp;&nbsp;&nbsp;   overflow: hidden;<br>
+        &nbsp;&nbsp;&nbsp;   position: absolute;<br>
+        &nbsp;&nbsp;&nbsp;   white-space: nowrap;<br>
+        &nbsp;&nbsp;&nbsp;   width: 1px;<br>
+        }<br><br>
+        
+        ins::before {<br>
+            &nbsp;&nbsp;&nbsp;   content: " [Début de l'insertion]";<br>
+        }<br><br>
+        
+        ins::after {<br>
+            &nbsp;&nbsp;&nbsp;   content: " [Fin de l'insertion] ";<br>
+        }<br>
+        
+    </code>
+</p> -->
+
+
+    <h2>&lt;kbd&gt; : l'élément de saisie clavier</h2>
+    <p>L'élément HTML <kbd><strong>kbd</strong></kbd> représente une plage de texte en ligne indiquant la saisie de texte par l'utilisateur à partir d'un clavier, d'une saisie vocale ou de tout autre dispositif de saisie de texte. Par convention, le user agentrend par défaut le contenu d'un élément <kbd><strong>kbd</strong></kbd> en utilisant sa police monospace, bien que cela ne soit pas requis par le standard HTML.</p>
+
+    <p><kbd><strong>kbd</strong></kbd> peut être imbriqué dans diverses combinaisons avec <kbd><strong>samp</strong></kbd> (Sample Output) pour représenter diverses formes d'entrée ou d'entrée basées sur des repères visuels.</p>
+
+    <p>Please press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> to re-render an MDN page.</p>
+
+
+
+
+    <h2>&lt;label&gt; <span class="top">top</span></h2>
+    <p> L'élément HTML <kbd><strong>label</strong></kbd> représente une légende pour un objet d'une interface utilisateur. Il peut être associé à un contrôle en utilisant l'attribut <kbd><strong>for</strong></kbd> ou en plaçant l'élément du contrôle à l'intérieur de l'élément <kbd><strong>label</strong></kbd>. Un tel contrôle est appelé <em>contrôle étiqueté</em> par l'élément <kbd><strong>label</strong></kbd>.</p>
+
+    <p>On peut également créer un lien implicite en imbriquant l'élément <kbd><strong>input</strong></kbd> directement au sein d'un élément <kbd><strong>label</strong></kbd> . Dans ce cas, les attributs <kbd><strong>for</strong></kbd> et <kbd><strong>id</strong></kbd>ne sont plus nécessaires.</p>
+
+    <div class="code-container">
+      <button class="copy" onclick="copyCode()">Copier code</button>
+      <pre><code class="code-block">
+    &lt;label&gt;Aimez-vous les petits pois ?<br>
+    &lt;input type="checkbox" name="petits_pois" /&gt; <br>
+    &lt;/label&gt;
+  </code></pre>
+</div> 
+
+
+<h2>&lt;legend&gt; <span class="top">top</span></h2>
+<p>L'élément HTML <strong>&lt;legend&gt;</strong> représente une légende pour le contenu de son élément parent <kbd><strong>fiedlset</strong></kbd>.</p>
+
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+
+<fieldset class="fieldset">
+  <legend>Choose your favorite monster</legend>
+    
+  <input type="radio" id="kraken" name="monster" value="K" />
+  <label for="kraken">Kraken</label><br />
+    
+  <input type="radio" id="sasquatch" name="monster" value="S" />
+  <label for="sasquatch">Sasquatch</label><br />
+    
+  <input type="radio" id="mothman" name="monster" value="M" />
+  <label for="mothman">Mothman</label>
+</fieldset>
+
+  </code></pre>
+  </div> 
+
+
+
+<fieldset class="fieldset">
+    <legend>Choose your favorite monster</legend>
+  
+    <input type="radio" id="kraken" name="monster" value="K" />
+    <label for="kraken">Kraken</label><br />
+  
+    <input type="radio" id="sasquatch" name="monster" value="S" />
+    <label for="sasquatch">Sasquatch</label><br />
+  
+    <input type="radio" id="mothman" name="monster" value="M" />
+    <label for="mothman">Mothman</label>
+  </fieldset>
+
+
+
+
+
+
+  <h2>&lt;li&gt; <span class="top">top</span></h2>
+  <p> L'élément HTML <kbd><strong>li</strong></kbd> est utilisé pour représenter un élément dans une liste. Il doit être contenu dans un élément parent : une liste ordonnée (<kbd><strong>li</strong></kbd>), une liste non ordonnée (<kbd><strong>ul</strong></kbd>) ou un menu (<kbd><strong>menu</strong></kbd>). Dans les menus et les listes non ordonnées, les éléments de liste sont habituellement affichés en utilisant des puces. Dans les listes ordonnées, ils sont habituellement affichés avec compteur croissant à gauche, tel qu'un nombre ou une lettre.  </p>
+
+
+  <p>Dans une liste ordonnée, l'attribut "value" permet de commencer la classification par un chiffre ou chiffre romain. 
+  </p>
+<ol type="I">
+    <li value="3">troisième article</li>
+    <li>quatrième article</li>
+    <li>cinquième article</li>
+  </ol>
+  
+
+<div class="code-container">
+<button class="copy" onclick="copyCode()">Copier code</button>
+<pre><code class="code-block">
+<ol type="I">
+  <li value="3">troisième article</li>
+  <li>quatrième article</li>
+  <li>cinquième article</li>
+</ol>
+</code></pre>
+</div> 
+
+  <h2>&lt;link&gt;<span class="top">top</span></h2>
+
+  <p>L'élément HTML <kbd><strong>link</strong></kbd> définit la relation entre le document courant et une ressource externe. Cet élément peut être utilisé pour définir un lien vers une feuille de style, vers les icônes utilisées en barre de titre ou comme icône d'application sur les appareils mobiles.</p>
+
+  <div class="code-container">
+    <button class="copy" onclick="copyCode()">Copier code</button>
+    <pre><code class="code-block">
+  &lt;link href="/media/examples/link-element-example.css" rel="stylesheet"&gt;
+  </code></pre>
+  </div> 
+  <!-- <p><code>
+    &lt;link href="/media/examples/link-element-example.css" rel="stylesheet"&gt;
+</code></p> -->
+
+<h2>&lt;main&gt;<span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>main</strong></kbd> représente le contenu majoritaire du <kbd><strong>body</strong></kbd>du document. Le contenu principal de la zone est constitué de contenu directement en relation, ou qui étend le sujet principal du document ou de la fonctionnalité principale d'une application.</p>
+
+
+<h2>&lt;map&gt;</h2>
+<p>L'élément HTML <kbd><strong>map</strong></kbd> est utilisé avec des éléments <kbd><strong>area</strong></kbd>afin de définir une image cliquable divisée en régions.</p>
+
+<p>Voir area</p>
+
+
+<h2>&lt;mark&gt;</h2>
+<p>L'élément HTML <kbd><strong>mark</strong></kbd> représente un texte marqué ou surligné à cause de sa pertinence dans le contexte. Il peut par exemple être utilisé afin d'indiquer les correspondances d'un mot-clé recherché au sein d'un document.</p>
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<p>Several species of <mark>salamander</mark> inhabit the temperate rainforest of the Pacific Northwest.</p>
+<p>Most <mark>salamander</mark>s are nocturnal, and hunt for insects, worms, and other small creatures.</p>
+  </code></pre>
+</div> 
+
+<p>Several species of <mark>salamander</mark> inhabit the temperate rainforest of the Pacific Northwest.</p>
+<p>Most <mark>salamander</mark>s are nocturnal, and hunt for insects, worms, and other small creatures.</p>
+
+
+<h2>&lt;menu&gt;</h2>
+<p>Les éléments <kbd><strong>menu</strong></kbd> et <kbd><strong>ul</strong></kbd>représentent tous les deux une liste non-ordonnée d'éléments. <kbd><strong>ul</strong></kbd>doit être utilisés pour des éléments qui doivent uniquement être affichés alors que <kbd><strong>menu</strong></kbd> était initialement conçu pour des éléments interactifs.</p>
+
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+    <p>menu peut remplace ul comme dans le cas ci-dessous : </p>
+<menu>
+  <li><button onclick="copy()">Copier</button></li>
+  <li><button onclick="cut()">Couper</button></li>
+  <li><button onclick="paste()">Coller</button></li>
+</menu>
+</code></pre>
+</div> 
+
+
+<p>menu peut remplace ul comme dans le cas ci-dessous : </p>
+
+<menu>
+    <li><button onclick="copy()">Copier</button></li>
+    <li><button onclick="cut()">Couper</button></li>
+    <li><button onclick="paste()">Coller</button></li>
+  </menu>
+
+  <!-- <p><code>
+    &lt;menu><br>
+    &nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;button onclick="copy()"&gt;Copier&lt;/button&gt;&lt;/li&gt;<br>
+   &nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;button onclick="cut()"&gt;cjouper&lt;/button&gt;&lt;/li&gt;<br>
+   &nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;button onclick="past()"&gt;Coller&lt;/button&gt;&lt;/li&gt;<br>
+    &lt;/menu&gt;<br>
+</code></p> -->
+
+
+<h2>&lt;meta&gt; : l'élément de métadonnées du document <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>meta</strong></kbd> représente toute information de métadonnées qui ne peut pas être représentée par un des éléments (
+  
+  <kbd><strong>base</strong></kbd>, 
+  <kbd><strong>link</strong></kbd>, 
+  <kbd><strong>script</strong></kbd>, 
+  <kbd><strong>style</strong></kbd> ou
+  <kbd><strong>title</strong></kbd>)</p>
+  
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</code></pre>
+</div> 
+
+
+
+
+
+<h2>&lt;meter&gt; <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>meter</strong></kbd> représente une valeur scalaire dans un intervalle donné ou une valeur fractionnaire.</p> 
+
+<p>Les trois couleurs par défaut sont rouge, orange et vert en fonction de la valeur précisé dans <kbd><strong>value</strong></kbd></p>
+
+<label for="fuel">Fuel level:</label>
+<meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="50" style="width: 80%">at 50/100</meter><br>
+<label for="fuel">Fuel level:</label>
+<meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="15" style="width: 80%">at 15/100</meter><br>
+<label for="fuel">Fuel level:</label>
+<meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="80" style="width: 80%">at 80/100</meter><br>
+
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+    &lt;label for="fuel">Fuel level:&lt;/label&gt;<br>
+    &lt;meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="50"&gt;at 50/100&lt;/meter&gt; 
+  </code></pre>
+  </div>
+
+<dt id="high"><kbd><strong>high</strong></kbd></dt>
+  <dd>
+    <p>Cet attribut représente la valeur minimale à partir de laquelle la mesure est considérée comme haute. Si cet attribut est défini, il doit s'agir d'un nombre à virgule compris entre les valeurs des attributs <kbd><strong>min</strong></kbd> et <kbd><strong>max</strong></kbd>. Si l'attribut <strong>low</strong></kbd> est aussi défini, il doit être plus grand que celui-ci.</p>
+  </dd>
+  <dt id="low"><kbd><strong>low</strong></kbd></dt>
+  <dd>
+    <p>Cet attribut représente la valeur maximale à partir de laquelle la mesure est considérée comme basse. Si cet attribut est défini, il doit s'agir d'un nombre à virgule compris entre les valeurs des attributs <kbd><strong>min</strong></kbd> et <strong>max</strong></kbd>. Si l'attribut <kbd><strong>high</strong></kbd> est aussi défini, il doit être plus petit que celui-ci.</p>
+  </dd>
+  <dt id="max"><kbd><strong>max</strong></kbd></dt>
+  <dd>
+    <p>Cet attribut représente la valeur maximale que peut prendre la mesure. Il doit s'agir d'un nombre à virgule; s'il est invalide ou si l'attribut n'est pas défini, sa valeur par défaut est 1.0. Il doit être strictement plus grand que la valeur de l'attribut <kbd><strong>min</strong></kbd>.</p>
+  </dd>
+  <dt id="min"><kbd><strong>min</strong></kbd></dt>
+  <dd>
+    <p>Cet attribut représente la valeur minimale que peut prendre la mesure. Il doit s'agir d'un nombre à virgule; s'il est invalide ou si l'attribut n'est pas défini, sa valeur par défaut est 0.0. Il doit être strictement plus petit que la valeur de l'attribut <kbd><strong>max</strong></kbd>.</p>
+  </dd>
+  <dt id="optimum"><kbd><strong>optimum</strong></kbd></dt>
+  <dd>
+    <p>Cet attribut représente la valeur idéale pour la mesure. Si cet attribut est défini, il doit s'agir d'un nombre à virgule compris entre les valeurs des attributs <kbd><strong>min</strong></kbd> et <kbd><strong>max</strong></kbd>. Si la valeur de <kbd><strong>optimum</strong></kbd> est inférieure à <kbd><strong>low</strong></kbd>, s'il est défini, cela signifie que les valeurs les plus petites sont meilleures; si sa valeur est supérieure à <kbd><strong>low</strong></kbd>, s'il est défini, cela signifie que les valeurs les plus grandes sont meilleures; enfin, s'il est compris entre <kbd><strong>low</strong></kbd> et <kbd><strong>high</strong></kbd>, cela signifie que les extrêmes ne sont pas les meilleures grandeurs.</p>
+  </dd>
+
+    <h2>&lt;nav&gt; : l'élément de section de navigation</h2>
+    <p>L'élément HTML <kbd><strong>&lt;nav&gt;</strong></kbd> représente une section d'une page ayant des liens vers d'autres pages ou des fragments de cette page. Autrement dit, c'est une section destinée à la navigation dans un document (avec des menus, des tables des matières, des index, etc.).</p>
+
+
+    <div class="code-container">
+      <button class="copy" onclick="copyCode()">Copier code</button>
+      <pre><code class="code-block"> 
+<nav class="crumbs">
+  <ol>
+    <li class="crumb"><a href="#">Bikes</a></li>
+    <li class="crumb"><a href="#">BMX</a></li>
+    <li class="crumb">Jump Bike 3000</li>
+  </ol>
+</nav>      
+      </code></pre>
+      </div> 
+
+    <nav class="crumbs">
+        <ol>
+          <li class="crumb"><a href="#">Bikes</a></li>
+          <li class="crumb"><a href="#">BMX</a></li>
+          <li class="crumb">Jump Bike 3000</li>
+        </ol>
+      </nav>
+
+
+      <h2>&lt;noscript&gt;</h2>
+      <p>L'élément HTML <kbd><strong>noscript</strong></kbd> définit un fragment HTML qui doit être affiché si les fonctionnalités de script ne sont pas prises en charge ou si elles sont désactivées.</p>
+
+
+
+     
+      <h2>&lt;object&gt;</h2> <p>L'élément HTML <kbd><strong>object</strong></kbd> représente une ressource externe qui peut être interprétée comme une image, un contexte de navigation imbriqué ou une ressource à traiter comme un <em>plugin</em>.</p>
+
+      <div class="code-container">
+        <button class="copy" onclick="copyCode()">Copier code</button>
+        <pre><code class="code-block">
+  &lt;object type="application/pdf" data="/media/examples/In-CC0.pdf" width="100%" height="200"&gt;&lt;/object&gt;
+</code></pre>
+</div> 
+
+
+      <object type="application/pdf" data="objectpartition.pdf" width="100%" height="250"></object>
+
+<p>Cela peut être aussi l'intégration d'une vidéo Youtube</p>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<object
+    type="video/mp4"
+    data="video1.mp4"
+    width="1280"
+    height="720">
+</object>
+</code></pre>
+</div> 
+
+
+      <object
+  type="video/mp4"
+  data="video1.mp4"
+  width="1280%"
+  height="720"></object>
+
+  <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/52Yx6n0enao?si=2ZOuTAl2e6cjnJe_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+
+
+
+      <h2>&lt;ol&gt;</h2>
+
+<p>C'est une liste numéroté, dite "ORDONNE", ordered list, l'inverse est ul Unordered list. </p>
+
+<p>Définit le type de numérotation :<br>
+
+    a pour les lettres minuscules<br>
+    A pour les lettres majuscules<br>
+    i pour les chiffres romains minuscules<br>
+    I pour les chiffres romains majuscules<br>
+    1 pour les chiffres (par défaut)<br>
+</p>
+
+<p>l'attribut start permet de preciser à partir de combien on souhaite commencer la numérotation.</p>
+
+      <h2>&lt;optgroup&gt;</h2>
+
+      <p>Se place dans une formulaire dans un menu sélect, ce nom de balise permet de créer un groupe d'options parmi lesqueslles on peut choisir une OPTION lesqueles on peut choisir dans un élément SELECT.</p>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+    &lt;label for="dino-select"&gt;Choose a dinosaur:&lt;/label&gt;
+    &lt;select id="dino-select"&gt;
+      &lt;optgroup label="Theropods"&gt;
+        &lt;option&gt;Tyrannosaurus&lt;/option&gt;
+        &lt;option&gt;Velociraptor&lt;/option&gt;
+        &lt;option&gt;Deinonychus&lt;/option&gt;
+      &lt;/optgroup&gt;
+      &lt;optgroup label="Sauropods"&gt;
+        &lt;option&gt;Diplodocus&lt;/option&gt;
+        &lt;option&gt;Saltasaurus&lt;/option&gt;
+        &lt;option&gt;Apatosaurus&lt;/option&gt;
+      &lt;/optgroup&gt;
+    &lt;/select&gt;
+  </code></pre>
+</div> 
+
+
+
+<label for="dino-select">Choose a dinosaur:</label>
+<select id="dino-select">
+  <optgroup label="Theropods">
+    <option>Tyrannosaurus</option>
+    <option>Velociraptor</option>
+    <option>Deinonychus</option>
+  </optgroup>
+  <optgroup label="Sauropods">
+    <option>Diplodocus</option>
+    <option>Saltasaurus</option>
+    <option>Apatosaurus</option>
+  </optgroup>
+</select>
+
+
+<h2>&lt;option&gt;</h2>
+<p>L'élément HTML <kbd><strong>option</strong></kbd>, utilisé dans un formulaire, permet de représenter un contrôle au sein d'un élément <kbd><strong>select</strong></kbd>,<kbd><strong>optgroup</strong></kbd> ou <kbd><strong>datalist</strong></kbd>. Cet élément peut donc représenter des éléments d'un menu dans un document HTML.</p>
+
+<h2>&lt;output&gt; : l'élément de sortie</h2>
+<p>L'élément HTML <kbd><strong>output</strong></kbd> représente un conteneur dans lequel un site ou une application peut injecter le résultat d'un calcul ou d'une action utilisateur.</p>
+
+<p>Le formulaire qui suit fournit un curseur dont la valeur peut aller de 0 à 100 ainsi qu'un élément <kbd><strong>input</kbd>strong></kbd> dans lequel on peut saisir un deuxième nombre. Les deux nombres sont additionnés et le résultat est affiché dans l'élément <kbd><strong>output</strong></kbd> et est actualisé lorsqu'une des deux valeurs est modifiée.</p>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+<input type="range" name="b" value="50" /> +
+<input type="number" name="a" value="10" /> =
+<output name="result">60</output>
+</form>
+</code></pre>
+</div> 
+
+
+
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+    <input type="range" name="b" value="50" /> +
+    <input type="number" name="a" value="10" /> =
+    <output name="result">60</output>
+  </form>
+  
+
+  <h2>&lt;p&gt; : l'élément paragraphe <span class="top">top</span></h2>
+  <p>L'élément HTML <kbd><strong>p</strong></kbd> représente un paragraphe de texte. Les paragraphes sont généralement représentés comme des blocs et séparés par un espace vertical, leur première ligne est également parfois indentée. Les paragraphes sont des éléments blocs.</p>
+
+
+
+
+  <h2>&lt;portal&gt; : l'élément portal</h2>
+
+  <p>Ressemble à iframe, à la différence qu'on ne peut pas interragir, on ne peux que visualiser.</p>
+  <p>Attention, il est peu reconnu par les navigateurs</p>
+  <portal id="exempleportal" src="https://www.francoisduarte.fr/" style="width: 100%; height: 250px"></portal>
+
+
+  <div class="code-container">
+    <button class="copy" onclick="copyCode()">Copier code</button>
+    <pre><code class="code-block">
+  <portal id="exempleportal" src="https://www.francoisduarte.fr/"></portal>   
+  </code></pre>
+    </div> 
+
+  
+
+  <h2>&lt;picture&gt; : l'élément d'image adaptative</h2>
+<p>L'élément HTML <kbd><strong>picture</strong></kbd> est un conteneur utilisé afin de définir zéro ou plusieurs éléments<kbd><strong>source</strong></kbd> destinés à un élément <kbd><strong>img</strong></kbd>. Le navigateur choisira la source la plus pertinente selon la disposition de la page (les contraintes qui s'appliquent à la boîte dans laquelle l'image devra être affichée), selon l'appareil utilisé (la densité de pixels de l'affichage par exemple avec les appareils hiDPI) et selon les formats pris en charge (ex. WebP pour les navigateurs Chromium ou PNG pour les autres). Si aucune correspondance n'est trouvée parmi les éléments <kbd><strong>source</strong></kbd>, c'est le fichier défini par l'attribut <kbd><strong>src</strong></kbd> de l'élément <kbd><strong>img</strong></kbd> qui sera utilisé.</p>
+
+
+
+<h2>&lt;pre&gt; : l'élément de texte préformaté</h2>
+<p>L'élément HTML<kbd><strong>pre</strong></kbd> représente du texte préformaté, généralement écrit avec une police à chasse fixe. Le texte est affiché tel quel, les espaces utilisés dans le document HTML seront retranscrits.</p>
+
+<h2>&lt;progress&gt; : l'élément d'indicateur de progression <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>progress</strong></kbd> indique l'état de complétion d'une tâche et est généralement représenté par une barre de progression.</p>
+
+ 
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<label for="file" style="padding-right: 10px; font-size: 1rem;">File progress:</label>
+<progress id="file" max="100" value="70">70%</progress>
+  </code></pre>
+  </div> 
+
+
+<label for="file" style="padding-right: 10px; font-size: 1rem;">File progress:</label>
+<progress id="file" max="100" value="70">70%</progress>
+Il est possible de mettre un background color à progess.. de lui mettre une taille et une hauteur.
+<p>Pour ce qui est de la couleur de la barre de progression :</p>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+/* Pour Webkit */
+progress::-webkit-progress-bar {
+background-color: #eee; /* Couleur de fond */
+}
+progress::-webkit-progress-value {
+background-color: #4caf50; /* Couleur de la barre de progression */
+}
+    
+/* Pour Mozilla */
+progress::-moz-progress-bar {
+background-color: #4caf50; /* Couleur de la barre de progression */
+} 
+</code></pre>
+  </div> 
+
+
+<h2>&lt;q&gt; : l'élément de citation en incise</h2>
+<p>L'élément HTML <kbd><strong>q</strong></kbd> indique que le texte qu'il contient est une citation en incise. La plupart des navigateurs modernes entoure le texte de cet élément avec des marques de citation. Cet élément est destiné aux citations courtes qui ne nécessitent pas de sauts de paragraphe. Pour les plus grandes citations, on utilisera l'élément <code>&lt;blockquote&gt;</code>.</p>
+
+<p>
+    When Dave asks HAL to open the pod bay door, HAL answers:
+    <q cite="https://www.imdb.com/title/tt0062622/quotes/?item=qt0396921&ref_=ext_shr_lnk">
+      I'm sorry, Dave. I'm afraid I can't do that.
+    </q>
+  </p>
+
+  <p>L'attribut CITE : la valeur de cet attribut est une URL désignant la source du message ou de l'information citée. Cet attribut est prévu pour fournir des renseignements concernant le contexte ou la référence de cette citation.</p>
+ 
+  <div class="code-container">
+    <button class="copy" onclick="copyCode()">Copier code</button>
+    <pre><code class="code-block">
+    &lt;p&gt;
+    Chaque fois que Kenny est tué, Stan dira
+    &lt;q cite="http://fr.wikipedia.org/wiki/Kenny_McCormick#Le_dialogue_rituel"&gt;
+      Oh mon Dieu, ils ont tué Kenny ! &lt;/q&gt;.
+    &lt;/p&gt;
+  </code></pre>
+</div> 
+
+  <p>
+    Chaque fois que Kenny est tué, Stan dira
+    <q cite="http://fr.wikipedia.org/wiki/Kenny_McCormick#Le_dialogue_rituel">
+      Oh mon Dieu, ils ont tué Kenny ! </q
+    >.
+  </p>
+
+  <kbd><strong>br</strong></kbd>
+
+  <h2>&lt;rp&gt; : l'élément de parenthèses alternatif aux annotations Ruby</h2>
+  <p>L'élément HTML <kbd><strong>rp</strong></kbd> est utilisé pour fournir ce qui fera office de parenthèse aux navigateurs qui ne prennent pas en charge les annotations Ruby.</p>
+  <p>Les annotations Ruby permettent d'afficher la prononciation des caractères d'Asie orientale, notamment lors de l'usage de caractères furigana Japonais ou bopomofo Taïwanais.</p>
+  <p>Un élément <kbd><strong>rp</strong></kbd> devrait encadrer chaque parenthèse ouvrante et fermante englobant l'élément <kbd><strong>rt</strong></kbd> contenant les annotations.</p>
+
+
+  <h2>&lt;rt&gt; : l'élément de texte Ruby</h2>
+  <p>L'élément HTML <kbd><strong>rt</strong></kbd> indique la composante texte d'une annotation Ruby, il est notamment utilisé pour la prononciation, la traduction ou la translitération des caractères d'Asie orientale. Cet élément est toujours contenu dans un élément <kbd><strong>ruby</strong></kbd>.</p>
+
+
+  <h2>&lt;ruby&gt;</h2>
+  <p>L'élément HTML <kbd><strong>ruby</strong></kbd> représente une annotation ruby. Les annotations Ruby servent à afficher la prononciation des caractères d'Asie orientale.</p>
+
+  <h2>&lt;s&gt;</h2>
+  <p>L'élément HTML <kbd><strong>s</strong></kbd> permet d'afficher du texte qui est barré car il n'est plus pertinent ou car il est obsolète. <kbd><strong>s</strong></kbd> ne doit pas être employé pour indiquer des éditions dans un document (on utilisera alors <kbd><strong>del</strong></kbd> et <kbd><strong>ins</strong></kbd>).</p>
+
+
+  <h2>&lt;samp&gt; : l'élément d'échantillon en sortie</h2>
+  <p>L'élément HTML<kbd><strong>samp</strong></kbd> est un élément qui permet de représenter un résultat produit par un programme informatique en incise dans du texte. Il est généralement affiché avec la police à chasse fixe du navigateur (par exemple en Courier ou en Lucida Console).</p>
+
+
+  <h2>&lt;section&gt; <span class="top">top</span></h2>
+  <p>
+    L'élément HTML <kbd><strong>section</strong></kbd> représente une section générique d'un document, comme un groupe de contenu thématique. Elle est utilisée pour regrouper du contenu lié logiquement, aidant ainsi à organiser la page en sections distinctes
+    </p>
+
+    <p>La balise <kbd><strong>section</strong></kbd> en HTML est essentielle pour structurer correctement une page web. Introduite dans HTML5, la balise <kbd><strong>section</strong></kbd> aide à créer des divisions claires dans la structure de la page, comme des chapitres, des arguments, ou différentes parties d'un contenu.</p>
+      
+    <p>Différenciation d'autres balises de structure : Bien que semblable à d'autres balises de structure comme <kbd><strong>div</strong></kbd>, <strong>article</strong></kbd>, ou <strong>aside</strong></kbd>,<kbd><strong>section</strong></kbd> est spécifiquement destinée à regrouper des contenus thématiquement liés. Elle n'est pas juste un conteneur, mais indique une section distincte et significative du contenu.</p>
+      
+      <p>Titres de section : Il est courant d'utiliser les éléments de titre (<kbd><strong>h1</strong></kbd>-<kbd><strong>h6</strong></kbd>) dans une <kbd><strong>section</strong></kbd> pour indiquer le niveau de section et structurer hiérarchiquement le contenu.</p>
+      
+        <p>En résumé, <kbd><strong>section</strong></kbd>  est une balise de structure HTML5 qui permet de diviser le contenu d'une page web en sections thématiques distinctes, contribuant ainsi à une meilleure organisation et lisibilité du document.</p>
+      
+  
+
+  <h2>&lt;script&gt; : l'élément de script <span class="top">top</span></h2>
+  <p>L'élément HTML <kbd><strong>script</strong></kbd> est utilisé pour intégrer ou faire référence à un script exécutable. Cela fait généralement référence à du code JavaScript mais ce peut également être un autre type de script (par exemple WebGL).</p>
+<p>Les scripts sans attribut <kbd><strong>async</strong></kbd>  ou <kbd><strong>defer</strong></kbd> sont chargés et exécutés immédiatement avant que le navigateur continue l'analyse de la page.</p>
+
+
+
+<h2>&lt;search&gt; <span class="top">top</span></h2>
+<p>La balise HTML <kbd><strong>search</strong></kbd>est utilisée principalement dans le cadre de formulaires pour créer un champ de recherche. Voici quelques points clés à connaître :</p>
+
+  <p> Similitude avec <kbd><strong>&lt;input type="text"&gt;</strong></kbd> : Les éléments <kbd><strong>&lt;input&gt;</strong></kbd> de type search sont similaires aux éléments <kbd><strong>input</strong></kbd> de type text. La différence principale réside dans l'optimisation pour les champs de recherche, notamment en termes d'esthétique et de fonctionnalité sur différents navigateurs.</p>
+  
+  <p>Spécificités de comportement : Ce type de champ est interprété différemment selon les navigateurs. Par exemple, Webkit applique certaines caractéristiques spécifiques à ce type de champ . Utilisation en SEO : Bien que la balise <kbd><strong>search</strong></kbd> elle-même n'ait pas un impact direct en SEO, l'utilisation de champs de recherche dans les formulaires peut améliorer l'expérience utilisateur, un facteur important en SEO.</p>
+  
+  <p> Attributs acceptés : Comme avec d'autres éléments <kbd><strong>&lt;input&gt;</strong></kbd> , la balise search accepte divers attributs HTML qui peuvent être utilisés pour personnaliser son comportement et son apparence. En résumé, la balise  <kbd><strong>search</strong></kbd> est un élément de formulaire HTML spécialisé pour les champs de recherche, offrant des fonctionnalités et un style adaptés pour améliorer l'expérience utilisateur sur différents navigateurs.</p>
+
+
+<h2>&lt;select&gt; <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>select</strong></kbd> représente un contrôle qui fournit une liste d'options parmi lesquelles l'utilisateur pourra choisir.</p>
+
+
+<h2>&lt;slot&gt;</h2>
+<p>L'élément HTML <kbd><strong>slot</strong></kbd> représente un emplacement d'un composant web qu'on peut remplir avec son propre balisage. On peut ainsi obtenir un document construit avec différents arbres DOM. Cet élément fait partie des outils relatifs aux composants web (Web Components).</p>
+
+<h2>&lt;small&gt;</h2>
+<p>L'élément HTML <kbd><strong>small</strong></kbd> permet de représenter des commentaires ou des textes à écrire en petits caractères (des termes d'un contrat, des mentions relatives au droit d'auteur, etc.) quelle que soit la présentation.</p>
+
+<h2>&lt;source&gt;</h2>
+<p>L'élément HTML <kbd><strong>source</strong></kbd> définit différentes ressources média pour un élément <kbd><strong>picture</strong></kbd>, <kbd><strong>audio</strong></kbd> ou <kbd><strong>video</strong></kbd>. C'est un élément vide : il ne possède pas de contenu et ne nécessite pas de balise fermante. Il est généralement utilisé pour distribuer le même contenu en utilisantles différents formats pris en charge par les différents navigateurs.</p>
+
+
+<h2>&lt;span&gt; <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>span</strong></kbd> est un conteneur générique en ligne (<em>inline</em>) pour les contenus phrasés. Il ne représente rien de particulier. Il peut être utilisé pour grouper des éléments afin de les mettre en forme (grâce aux attributs <kbd><strong>class</strong></kbd> ou <kbd><strong>id</strong></kbd> et aux règles CSS) ou parce qu'ils partagent certaines valeurs d'attribut comme <kbd><strong>lang</strong></kbd>. Il doit uniquement être utilisé lorsqu'aucun autre élément sémantique n'est approprié. <kbd><strong>span</strong></kbd> est très proche de l'élément <kbd><strong>div</strong></kbd>, mais l'élément <kbd><strong>div</strong></kbd> est un élément de bloc, alors que <kbd><strong>span</strong></kbd> est un élément en ligne.</p>
+
+
+<h2>&lt;strong&gt;</h2>
+<p>L'élément HTML <kbd><strong>strong</strong></kbd> indique que le texte a une importance particulière ou un certain sérieux voire un caractère urgent. Cela se traduit généralement par un affichage en gras.</p>
+
+<h2>&lt;style&gt; <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>style</strong></kbd> contient des informations de mise en forme pour un document ou une partie d'un document. Par défaut, les instructions de mise en forme écrites dans cet élément sont écrites en CSS.</p>
+
+<h2>&lt;sub&gt;</h2>
+<p>L'élément HTML <kbd><strong>sub</strong></kbd> est utilisé, pour des raisons typographiques, afin d'afficher du texte en indice (sous la ligne de base et généralement plus petit) par rapport au bloc de texte environnant.</p>
+
+<h2>&lt;summary&gt;</h2>
+<p>L'élément HTML <kbd><strong>summary</strong></kbd> représente une boîte permettant de révéler le contenu d'un résumé ou d'une légende pour le contenu d'un élément <kbd><strong>details</strong></kbd>. En cliquant sur l'élément <kbd><strong>summary</strong></kbd>, on passe de l'état affiché à l'état masqué (et vice versa) de l'élément <kbd><strong>details</strong></kbd> parent.</p>
+
+<h2>&lt;sup&gt;</h2>
+<p>L'élément HTML <kbd><strong>sup</strong></kbd> est utilisé, pour des raisons typographiques, afin d'afficher du texte en exposant (plus haut et généralement plus petit) par rapport au bloc de texte environnant.</p>
+
+
+
+<h2>&lt;table&gt; : l'élément de tableau <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>table</strong></kbd> permet de représenter un tableau de données, c'est-à-dire des informations exprimées sur un tableau en deux dimensions.</p>
+
+<h2>&lt;tbody&gt; : l'élément de corps d'un tableau <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>tbody</strong></kbd> permet de regrouper un ou plusieurs éléments <kbd><strong>tr</strong></kbd> afin de former le corps d'un tableau HTML (<kbd><strong>table</strong></kbd>).</p>
+
+<h2>&lt;td&gt; : l'élément de cellule de tableau <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>td</strong></kbd> définit une cellule d'un tableau qui contient des données. Cet élément fait partie du <em>modèle de tableau</em>.</p>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+*<pre><code class="code-block">
+ 
+    <table>
+      <caption>
+        Exemple de tableau
+      </caption>
+    <thead>
+      <tr>
+        <td>Matin</td>
+        <td>Midi</td>
+        <td>AprsMidi</td>
+        <td>Soir</td>
+      </tr>
+    </thead>  
+    <tbody>
+      <tr>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+      </tr>
+    </tbody>
+    </table>
+  
+  
+  </code></pre>
+  </div> 
+
+    <table  style="width:100%">
+      <caption>
+        Exemple de tableau
+      </caption>
+    <thead>
+      <tr>
+        <td>Matin</td>
+        <td>Midi</td>
+        <td>AprsMidi</td>
+        <td>Soir</td>
+      </tr>
+    </thead>  
+    <tbody>
+      <tr>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+      </tr>
+    </tbody>
+    </table>
+<h2>&lt;template&gt;</h2>
+<p>L'élément HTML <kbd><strong>template</strong></kbd> (ou <strong><em>Template Content</em></strong> ou modèle de contenu) est un mécanisme utilisé pour stocker du contenu HTML (côté client) qui ne doit pas être affiché lors du chargement de la page mais qui peut être instancié et affiché par la suite grâce à un script JavaScript.</p>
+<p>Cet élément est un fragment de contenu mis de côté pour être utilisé par la suite dans le document. Lorsque le moteur traite le contenu de l'élément <kbd><strong>template</strong></kbd> lors du chargement de la page, il ne fait que vérifier la validité du contenu, ce dernier n'est pas affiché.</p>
+
+<h2>&lt;textarea&gt;<span class="top">top</span></h2>
+
+<p>L'élément HTML <kbd><strong>textarea</strong></kbd> représente un contrôle qui permet d'éditer du texte sur plusieurs lignes.</p>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+    <textarea name="" id="" cols="30" rows="10" placeholder="ici votre texte"></textarea>
+  </code></pre>
+  </div> 
+
+
+  <textarea name="" id="" cols="30" rows="10" placeholder="ici votre texte"></textarea>
+
+
+<h2>&lt;tfoot&gt; : l'élément de pied de tableau</h2>
+<p>L'élément HTML <kbd><strong>tfoot</strong></kbd> permet de définir un ensemble de lignes qui résument les colonnes d'un tableau.</p>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<table>
+  <thead>
+    <tr>
+      <th>Items</th>
+      <th scope="col">Expenditure</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr>
+      <th scope="row">Donuts</th>
+      <td>3,000</td>
+      </tr>
+  <tr>
+    <th scope="row">Stationery</th>
+    <td>18,000</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+    <th scope="row">Totals</th>
+    <td>21,000</td>
+    </tr>
+    </tfoot>
+    </table>  
+  
+  
+  </code></pre>
+  </div>
+
+  <table style="width:100%">
+    <thead>
+      <tr>
+        <th>Items</th>
+        <th scope="col">Expenditure</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr>
+        <th scope="row">Donuts</th>
+        <td>3,000</td>
+        </tr>
+    <tr>
+      <th scope="row">Stationery</th>
+      <td>18,000</td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+      <th scope="row">Totals</th>
+      <td>21,000</td>
+      </tr>
+      </tfoot>
+      </table>  
+
+
+
+<h2>&lt;th&gt; : l'élément d'en-tête de tableau</h2>
+<p>L'élément HTML <kbd><strong>th</strong></kbd> définit une cellule d'un tableau comme une cellule d'en-tête pour un groupe de cellule. La nature de ce groupe est définie grâce aux attributs <kbd><strong>scope</strong></kbd> et <kbd><strong>headers</strong></kbd>.</p>
+
+
+
+<h2>&lt;thead&gt;</h2>
+<p>L'élément HTML <kbd><strong>thead</strong></kbd> définit un ensemble de lignes qui définit l'en-tête des colonnes d'un tableau.</p>
+
+
+<h2>&lt;time&gt;</h2>
+<p>L'élément HTML <kbd><strong>time</strong></kbd> permet de représenter une période donnée. Cet élément permet d'utiliser l'attribut <kbd><strong>datetime</strong></kbd> afin de traduire la date ou l'instant dans un format informatique (permettant aux moteurs de recherche d'exploiter ces données ou de créer des rappels).</p>
+
+<div class="code-container">
+<button class="copy" onclick="copyCode()">Copier code</button>
+<pre><code class="code-block">
+<p>
+The Cure will be celebrating their 40th anniversary on <time datetime="2018-07-07">July 7</time> in London's Hyde
+Park.</p>
+
+<p>
+The concert starts at <time datetime="20:00">20:00</time> and you'll be able to enjoy the band for at least
+<time datetime="PT2H30M">2h 30m</time>.</p> 
+  
+  </code></pre>
+  </div> 
+
+
+<p>
+  The Cure will be celebrating their 40th anniversary on <time datetime="2018-07-07">July 7</time> in London's Hyde
+  Park.
+</p>
+<p>
+  The concert starts at <time datetime="20:00">20:00</time> and you'll be able to enjoy the band for at least
+  <time datetime="PT2H30M">2h 30m</time>.
+</p>
+
+
+
+<h2>&lt;title&gt; : l'élément de titre du document <span class="top">top</span></h2>
+<p>L'élément <kbd><strong>title</strong></kbd> définit le titre du document (qui est affiché dans la barre de titre du navigateur ou dans l'onglet de la page). Cet élément ne peut contenir que du texte, les balises qu'il contiendrait seraient ignorées.</p>
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<title>Titre de ma page</title>
+</code></pre>
+  </div> 
+
+<p>L'élément <kbd><strong>title</strong></kbd> se place dans la partie <kbd><strong>head</strong></kbd> de ma page.</p>
+
+<h2>&lt;tr&gt; : l'élément de ligne d'un tableau <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>tr</strong></kbd> définit une ligne de cellules dans un tableau. Une ligne peut être constituée d'éléments <kbd><strong>td</strong></kbd> (les données des cellules) et <kbd><strong>th</strong></kbd> (les cellules d'en-têtes).</p>
+
+<h2>&lt;track&gt; : l'élément de piste texte embarquée</h2>
+<p>L'élément HTML <kbd><strong>track</strong></kbd> est utilisé comme élément fils d'un élément <kbd><strong>audio</strong></kbd> ou <kbd><strong>video</strong></kbd> et permet de fournir une piste texte pour le média (par exemple afin de gérer automatiquement les sous-titres). Les pistes texte utilisées avec cet élément sont formatées selon le format WebVTT (ce sont des fichiers <kbd><strong>.vtt</strong></kbd>) (WebVTT pour <i lang="en">Web Video Text Tracks</i>).</p>
+
+<h2>&lt;ul&gt; <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>ul</strong></kbd> représente une liste d'éléments sans ordre particulier. Il est souvent représenté par une liste à puces.</p>
+
+<h2>&lt;var&gt; : l'élément de variable</h2>
+<p>L'élément HTML <kbd><strong>var</strong></kbd> représente une variable dans une expression mathématique ou un texte lié à la programmation. Son contenu est généralement représenté avec une version italique de la police environnante utilisée, toutefois, ce comportement peut dépendre du navigateur utilisé.</p>
+
+<h2>&lt;video&gt; <span class="top">top</span></h2>
+<p>L'élément HTML <kbd><strong>video</strong></kbd> intègre un contenu vidéo dans un document.</p>
+
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+  
+  <video controls width="250"> 
+<!-- mettre width="auto" si on veut une video qui soit responsive design -->
+    <source src="video/flower.webm" type="video/webm" />
+    <source src="video/flower.mp4" type="video/mp4" />
+      Download the
+    <a href="video/flower.webm">WEBM</a>
+    or
+    <a href="video/flower.mp4">MP4</a>
+    video.
+  </vieo>
+  
+  </code></pre>
+  </div>
+
+  <video controls width="100%">
+    <source src="video/flower.webm" type="video/webm" />
+    <source src="video/flower.mp4" type="video/mp4" />
+    Download<a href="video/flower.mp4">MP4</a>
+    </vieo>
+
+<h2>&lt;wbr&gt;</h2>
+<p>L'élément HTML <kbd><strong>wbr</strong></kbd> permet de représenter un emplacement où casser la ligne si nécessaire. Le navigateur pourra alors utiliser cet emplacement pour effectuer un saut de ligne si le texte est trop long et qu'en temps normal, une règle empêche le saut de ligne.</p>
+
+<p>le HTML</p>
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+<div id="wbr-example-paragraphs">
+  <p>Fernstraßenbauprivatfinanzierungsgesetz</p>
+  <p>Fernstraßen<wbr />bau<wbr />privat<wbr />finanzierungs<wbr />gesetz</p>
+  <p>Fernstraßen&shy;bau&shy;privat&shy;finanzierungs&shy;gesetz</p>
+</div> 
+  </code></pre>
+  </div> 
+
+<p>Le css :</p>
+<div class="code-container">
+  <button class="copy" onclick="copyCode()">Copier code</button>
+  <pre><code class="code-block">
+#example-paragraphs {
+  background-color: white;
+  overflow: hidden;
+  resize: horizontal;
+  width: 9rem;
+  border: 2px dashed #999;
+}
+  </code></pre>
+  </div>
+
+
+ <p>Dans le permier cas, le texte qui sort du bloc est caché en raison de la proprifété <kbd><strong>overflow:hidden</strong></kbd>. Dans les autres cas, le saut à la ligne peut se faire grâce à <kbd><strong>wbr</strong></kbd></p> 
+
+<div id="wbr-example-paragraphs">
+  <p>Fernstraßenbauprivatfinanzierungsgesetz</p>
+  <p>Fernstraßen<wbr />bau<wbr />privat<wbr />finanzierungs<wbr />gesetz</p>
+  <p>Fernstraßen&shy;bau&shy;privat&shy;finanzierungs&shy;gesetz</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+function copyCode() {
+  const code = document.getElementById("code-block");
+  const range = document.createRange();
+  window.getSelection().removeAllRanges();
+  range.selectNode(code);
+  window.getSelection().addRange(range);
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+  alert("Code copied to clipboard!");
+}
+
+
+// .nom-balise { color: rgb(86, 148, 186); }
+// .nom-attribut { color: rgb(96, 152, 96); }
+// .valeur-attribut { color: rgb(158, 143, 111); }
+// .html-commentaire { color: rgb(93, 99, 130); }
+// .chevron { color: rgb(117, 97, 61); }
+
+
+function coloriserCode() {
+  const codeBlocks = document.querySelectorAll('.code-block');
+
+  codeBlocks.forEach(codeBlock => {
+    let html = codeBlock.innerHTML;
+
+    // Encoder les chevrons pour éviter l'interprétation du code HTML
+    html = html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    // Marquer et coloriser les commentaires HTML
+    html = html.replace(/(&lt;!--)(.*?)(--&gt;)/g, '<span class="html-commentaire">$1$2$3</span>');
+
+
+// Coloriser le nom des balises, attributs et leurs valeurs
+      html = html.replace(/(&lt;)(\/?[a-z]+)(.*?)(&gt;)/g, function(match, p1, p2, p3, p4) {
+      // Séparer le nom de l'attribut, sa valeur, et les guillemets
+      const attributsColorises = p3.replace(/([a-z-]+)=("[^"]*")/g, function(match, nomAttribut, valeurAttribut) {
+        // Enlever les guillemets de la valeur de l'attribut
+        valeurAttribut = valeurAttribut.slice(1, -1);
+        return `<span class="nom-attribut">${nomAttribut}="</span><span class="valeur-attribut">${valeurAttribut}</span><span class="nom-attribut">"</span>`;
+      });
+      return `${p1}<span class="nom-balise">${p2}</span>${attributsColorises}${p4}`;
+    });
+
+    // Coloriser les chevrons
+    html = html.replace(/&lt;/g, '<span class="chevron">&lt;</span>').replace(/&gt;/g, '<span class="chevron">&gt;</span>');
+    codeBlock.innerHTML = html;
+  });
+}
+
+coloriserCode();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
